@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bear</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #464853;
+      overflow: hidden;
+    }
+
+    .container {
+      /* position: absolute; */
+    }
+
+    div[class^="mountain"] {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-size: auto 100%;
+      width: 3840px;
+      overflow: hidden;
+    }
+
+    .mountain1 {
+      height: 18em;
+      bottom: 0;
+      background: url(images/mountain3.png) 0 0 repeat-x;
+      z-index: 1;
+      animation: m1 30s linear 0s infinite normal none;
+    }
+
+    .mountain2 {
+      height: 12em;
+      bottom: 0;
+      background: url(images/mountain2.png) 0 0 repeat-x;
+      z-index: 2;
+      animation: m1 20s linear 0s infinite normal none;
+    }
+
+    .mountain3 {
+      height: 10.5em;
+      bottom: 0;
+      background: url(images/mountain1.png) 0 0 repeat-x;
+      z-index: 3;
+      animation: m1 10s linear 0s infinite normal none;
+    }
+
+    @keyframes m1 {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    .bear {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 100px;
+      background: url(images/bear.png) repeat-x;
+      z-index: 4;
+      animation: move 4s forwards, run 1s infinite steps(8);
+    }
+
+    @keyframes run {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -1600px 0;
+      }
+    }
+
+    @keyframes move {
+      0% {
+        left: 0;
+      }
+
+      100% {
+        left: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mountain1"></div>
+    <div class="mountain2"></div>
+    <div class="mountain3"></div>
+    <div class="bear"></div>
+  </div>
+</body>
+
+</html>

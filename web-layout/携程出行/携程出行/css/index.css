@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXiher, hei;
+  color: #000;
+  background-color: #fafafc;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* 搜索 */
+.search_index {
+  display: flex;
+  position: fixed;
+  /* 固定的盒子必须有宽度 */
+  /* 固定定位和父级无关，以屏幕为主，因此要加上最大最小宽度 */
+  max-width: 540px;
+  min-width: 320px;
+  /* 让其居中要更改left+translateX */
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  height: 44px;
+  align-items: center;
+  /* background-color: tomato; */
+  padding-left: 12px;
+  z-index: 1;
+}
+
+.search {
+  position: relative;
+  flex: 1;
+  height: 28px;
+  line-height: 24px;
+  padding: 2px 5px;
+  background-color: #fff;
+  color: #666;
+  font-size: 0.94rem;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.search span {
+  padding-left: 35px;
+}
+
+.search span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 100%;
+  /* 因为宽度设置的不是图标的大小是35*28，因此根据二倍图，垂直居中需要将精灵图向下28/2/2=7px,水平调整则需要 */
+  background: url(../images/home-common-sprite.png) 15px 7px no-repeat;
+  /* 在精灵图里坐标为1，1因此background-size要为-1，-1才能显示在给定宽高div的左上角，要移动到合适位置需要再div的基础上移动，向右下为正，向左上为负，也就是移动16，8 */
+  background-size: 21px auto;
+}
+
+.user {
+  display: flex;
+  width: 51px;
+  height: 44px;
+  /* background-color: violet; */
+  color: #fff;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  box-sizing: border-box;
+  padding-right: 4px;
+}
+
+.user::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  background: url(../images/home-common-sprite.png) 1px -36px no-repeat;
+  background-size: 21px auto;
+  margin-bottom: 1px;
+}
+
+.user span {
+  line-height: 1;
+}
+
+/* 搜索 */
+/* 蒙版 */
+.mask {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mask .img_wrap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+  display: block;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0));
+}
+
+.mask .img_wrap img {
+  background-repeat: no-repeat;
+  background-image: url(../images/mask.jpg);
+  display: block;
+  background-size: 100% auto;
+  width: 100%;
+}
+
+/* 蒙版 */
+/* 局部导航栏 */
+.local_nav {
+  position: relative;
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  margin: -52px 12px 10px;
+  padding: 4px 0 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: center;
+}
+
+.local_nav li {
+  flex: 1;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.local_nav li [class^='nav_img'] {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(../images/nav-sprite.png);
+  background-repeat: no-repeat;
+  background-size: 40px auto;
+}
+
+.local_nav li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* 局部导航栏 */
+/* 导航栏 */
+nav {
+  margin: 0 12px 1px;
+  background-color: pink;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nav_common {
+  display: flex;
+  font-size: 14px;
+  line-height: 1;
+  background: linear-gradient(to right, #fa5956, #fb8650 54%);
+}
+
+.nav_common:nth-child(2) {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.nav_common a {
+  display: flex;
+
+  color: #fff;
+  padding: 1.6rem 0;
+}
+
+.nav_common a:nth-child(-n+2) {
+  border-right: 1px solid #fff;
+}
+
+.nav_common a:nth-child(1) {
+  flex: 0 1 31%;
+  padding-left: 12px;
+  background-image: url(../images/grid-nav-items-hotel@v7.15.png);
+  background-repeat: no-repeat;
+  background-size: 73px auto;
+  background-position: right bottom;
+}
+
+.nav_common a:nth-child(2) {
+  flex: 0 1 23%;
+  background-image: url(../images/grid-nav-items-minsu@v7.15.png);
+  background-repeat: no-repeat;
+  background-size: 37px auto;
+  background-position: left bottom;
+}
+
+.nav_common a:nth-child(n+2) {
+  justify-content: center;
+}
+
+.nav_common a:nth-child(3) {
+  flex: 0 1 46%;
+  background-image: url(../images/grid-nav-items-hot.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: right bottom;
+}
+
+/* 导航栏 */
+/* 侧导航栏 */
+.sub_nav {
+  margin: 0 12px 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sub_nav li {
+  flex: 0 1 20%;
+}
+
+.sub_nav li a {
+  display: flex;
+  color: #222;
+  flex-direction: column;
+  text-align: center;
+  /* 要用align-items */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.63rem;
+  line-height: 1;
+}
+
+.sub_nav_icon {
+  width: 28px;
+  height: 28px;
+  background-image: url(../images/un_ico_subnav2x@v7.152.png);
+  background-size: 28px auto;
+  background-repeat: no-repeat;
+  margin-top: 0.63rem;
+  margin-bottom: 0.31rem;
+}
+
+/* 侧导航栏 */
+/* 热门活动 */
+.salse_box {
+  border-top: 1px solid #ccc;
+}
+
+.salse_hd {
+  position: relative;
+  height: 44px;
+  padding: 0 8px 1px;
+  background-color: #fff;
+}
+
+.salse_hd::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  display: inline-block;
+  width: 79px;
+  height: 15px;
+  background-image: url(../images/un_home_text.png);
+  background-repeat: no-repeat;
+  background-size: 79px auto;
+  transform: translateY(-50%);
+  background-position: 0 -19px;
+}
+
+.salse_icon {
+  position: absolute;
+  display: inline-block;
+  background-image: url(../images/icon-gg@2x.png);
+  background-repeat: no-repeat;
+  background-size: 36px auto;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 90px;
+  width: 36px;
+  height: 15px;
+}
+
+.more {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8px;
+  background: linear-gradient(to right, #ff4e63, #ff6cc9);
+  padding: 0 1.13rem 0 .75rem;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  border-radius: .63rem;
+  font-size: .75rem;
+}
+
+.more::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg);
+}
+
+.row {
+  display: flex;
+}
+
+.row a {
+  flex: 1;
+}
+
+.row a img:nth-child(1) {
+  border-top: 1px solid #f2f2f2;
+}
+
+.row a img {
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+/* 热门活动 */

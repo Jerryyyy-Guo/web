@@ -1,0 +1,81 @@
+/* 所有内外边距为0 */
+* {
+  margin: 0;
+  padding: 0;
+  /* CSS3盒子模型 */
+  box-sizing: border-box
+}
+
+/* em和i的斜体不倾斜 */
+em,
+i {
+  font-style: normal
+}
+
+/* li没有小圆点 */
+li {
+  list-style: none
+}
+
+/* 取消图片底部有空白缝隙 */
+img {
+  border: 0;
+  /* 照顾低版本浏览器，如果图片外面有连接会有边框的问题 */
+  vertical-align: middle
+}
+
+/* 鼠标样式变为手套 */
+button {
+  cursor: pointer
+}
+
+/* a连接颜色改变和去除下划线 */
+a {
+  color: #666;
+  text-decoration: none
+}
+
+/* a连接经过会变成京东红 */
+a:hover {
+  color: #c81623
+}
+
+/* 按钮和输入框的字体 */
+button,
+input {
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+  /* 宋体，不用"\5B8B\4F53"浏览器解析时会出现乱码 */
+  /* 黑体 "\9ED1\4F53" */
+  /* 微软雅黑 "\5FAE\8F6F\96C5\9ED1" */
+  border: 0;
+  outline: none;
+}
+
+/* 主体 */
+body {
+  /* CSS3属性：让文字抗锯齿性 ，让文字更加清晰 */
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  /* 所有文字大小是12px行高为1.5倍行高 */
+  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+  color: #666
+}
+
+/* 定义样式hide,none元素隐藏 */
+.hide,
+.none {
+  display: none
+}
+
+/* 清除浮动 */
+.clearfix:after {
+  visibility: hidden;
+  clear: both;
+  display: block;
+  content: ".";
+  height: 0
+}
+
+.clearfix {
+  *zoom: 1
+}

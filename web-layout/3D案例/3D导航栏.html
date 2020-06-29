@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3Dwrap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      margin: 0 auto;
+      /* background-color: blueviolet; */
+    }
+
+    li {
+      float: left;
+      margin: 5px;
+      width: 120px;
+      height: 36px;
+      list-style: none;
+      /* background-color: brown; */
+      perspective: 500px;
+    }
+
+    .box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* background-color: cadetblue; */
+      transform-style: preserve-3d;
+      transition: all 1s;
+    }
+
+    .box:hover {
+      transform: rotateX(90deg);
+    }
+
+    .front,
+    .bottom {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 36px;
+    }
+
+    .front {
+      background-color: pink;
+      z-index: 1;
+      transform: translateZ(18px);
+    }
+
+    .bottom {
+      background-color: purple;
+      /* 要用负值 */
+      /* 必须先写移动，再写旋转 */
+      transform: translateY(50%) rotateX(-90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <div class="box">
+        <div class="front">一直在终点等我</div>
+        <div class="bottom">住进你心里</div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <div class="front">一直在终点等我</div>
+        <div class="bottom">住进你心里</div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <div class="front">一直在终点等我</div>
+        <div class="bottom">住进你心里</div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <div class="front">一直在终点等我</div>
+        <div class="bottom">住进你心里</div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <div class="front">一直在终点等我</div>
+        <div class="bottom">住进你心里</div>
+      </div>
+    </li>
+  </ul>
+</body>
+
+</html>
